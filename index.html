@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Management</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="backend.js"></script>
+  </head>
+  <script>
+    window.onload = function () {
+      filterAndDisplayProducts();
+    };
+  </script>
+
+  <body>
+    <div class="container1">
+      <h1>Product Management System</h1>
+      <a href="addProduct.html">Add Product</a>
+      <input
+        type="text"
+        onchange="filterProducts(event)"
+        id="search"
+        placeholder="search"
+        style="width: 10%"
+      />
+      <div>
+        <button onclick="sortProducts('id')">Sort by Product ID</button>
+        <button onclick="sortProducts('name')">Sort by Product Name</button>
+        <button onclick="sortProducts('price')">Sort by Product price</button>
+      </div>
+      <table id="productsTable">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </table>
+    </div>
+    <script>
+      // 1 for ascending -1 for descending (sorting)
+      let id = 1;
+      let name = 1;
+      let price = 1;
+      function filterProducts(event) {
+        filterAndDisplayProducts(event.target.value); //calls function
+      }
+      function sortProducts(by) {
+        if (by === "id") {
+          id *= -1; //if 1 than -1 and if -1 then -1*-1=1 i.e ascending/descending
+          const order = id === 1 ? "asc" : "dsc";
+          filterAndDisplayProducts(undefined, by, order);
+        }
+        if (by === "name") {
+          name *= -1;
+          const order = name === 1 ? "asc" : "dsc";
+          filterAndDisplayProducts(undefined, by, order);
+        }
+        if (by === "price") {
+          price *= -1;
+          const order = price === 1 ? "asc" : "dsc";
+          filterAndDisplayProducts(undefined, by, order);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="backend.js"></script>
+  </head>
+
+  <script>
+    let productID = "";
+    window.onload = function () {
+      const path = window.location.search;
+
+      productID = path.split("=").pop(); // Get the last element (i.e. productID) from URL
+
+      let products = JSON.parse(localStorage.getItem("products"));
+      if (products === null) {
+        products = {};
+      }
+
+      const product = products[productID];
+      if (product === undefined) {
+        alert("Product does not exist");
+        window.location = "./index.html";
+      }
+
+      document.getElementById("name").value = product.name;
+      document.getElementById("imageUrl").value = product.image;
+      document.getElementById("price").value = product.price;
+      document.getElementById("description").value = product.description;
+    };
+  </script>
+  <body>
+    <div class="containeradd">
+      <a href="index.html"> Home </a>
+      <div class="inputElement">
+        <h1>Product Details</h1>
+      </div>
+      <div class="inputElement">
+        <h3>Name:</h3>
+        <input type="text" id="name" placeholder="Name" />
+      </div>
+
+      <div class="inputElement">
+        <h3>Image:</h3>
+        <input type="text" id="imageUrl" placeholder="Image Url" />
+      </div>
+
+      <div class="inputElement">
+        <h3>Price:</h3>
+        <input type="number" id="price" placeholder="Rs. " />
+      </div>
+
+      <div class="inputElement">
+        <h3>Description:</h3>
+        <textarea
+          id="description"
+          placeholder="Description"
+          style="resize: vertical"
+        ></textarea>
+      </div>
+
+      <div class="inputElement">
+        <button class="sub" onclick="validateAndEditProduct(productID)">
+          Submit
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

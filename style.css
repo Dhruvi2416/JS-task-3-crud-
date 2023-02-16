@@ -1,0 +1,151 @@
+/* index */
+table {
+  width: 90%;
+}
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th,
+td {
+  background-color: #96d4d4;
+}
+button {
+  width: 250px;
+}
+.container1 {
+  border: 3px solid black;
+  padding: 10px;
+  height: 1000px;
+  background-color: azure;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.container1::-webkit-scrollbar {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+/* view */
+.container {
+  border: 3px solid black;
+  padding: 10px;
+  background-color: azure;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputElement {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+h1 {
+  align-self: center;
+}
+h3,
+p {
+  margin: 0;
+}
+/* edit */
+
+img {
+  width: 400px;
+  height: 400px;
+}
+
+/* 
+add */
+.containeradd {
+  border: 3px solid black;
+  padding: 10px;
+  height: 500px;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  margin-left: 400px;
+  margin-top: 200px;
+}
+.inputElements {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.sub {
+  width: 60px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 762px) {
+  .containeradd {
+    border: 3px solid black;
+    padding: 10px;
+    height: 500px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin-left: 450px;
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (min-width: 762px) and (max-width: 1280px) {
+  .containeradd {
+    border: 3px solid black;
+    padding: 10px;
+    height: 500px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .containeradd {
+    border: 3px solid black;
+    padding: 10px;
+    height: 500px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+}
